@@ -15,16 +15,16 @@ function onInputValue() {
   localStorage.setItem('feedback-form-state', inputValue);
 }
 
-const feedbackState = localStorage.getItem('feedback-form-state')
+const feedbackState = localStorage.getItem('feedback-form-state');
 if (feedbackState) {
-    const feedbackStateData = JSON.parse(feedbackState)
-    feedbackFormEl.email.value = feedbackStateData.email
-    feedbackFormEl.message.value = feedbackStateData.message
+  const feedbackStateData = JSON.parse(feedbackState);
+  feedbackFormEl.email.value = feedbackStateData.email;
+  feedbackFormEl.message.value = feedbackStateData.message;
 }
-feedbackFormEl.addEventListener('submit', onFormSubmit)
+feedbackFormEl.addEventListener('submit', onFormSubmit);
 function onFormSubmit(evt) {
-    evt.preventDefault();
-    evt.currentTarget.reset();
-    localStorage.removeItem('feedback-form-state')
-    console.log({formData});
+  evt.preventDefault();
+  evt.currentTarget.reset();
+  localStorage.removeItem('feedback-form-state');
+  console.log({ formData });
 }
