@@ -5,18 +5,11 @@ const player = new Player(iframe);
 
 player.on(
   'timeupdate',
-  throttle(function (data) {
-    localStorage.setItem('videoplayer-current-time', data.seconds);
-  }, 1000)
+  throttle(function (time) {
+    localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
+  })
 );
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0);
-//   .then(function (seconds) {
-//     localStorage.getItem('videoplayer-current-time');
-//   })
-//   .catch(function (error) {
-//     switch (error.name) {
-//       case 'RangeError':
-//         break;
-//     }
-//   });
+const saveTime = localStorage.getItem('videoplayer-current-time');
+const timeStop = JSON.parse(saveTime);
+player.setCurrentTime(timeStop.seconds || 0);
