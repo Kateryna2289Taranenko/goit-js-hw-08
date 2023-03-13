@@ -13,5 +13,5 @@ player.on(
 const saveTime = localStorage.getItem(PLAYER_TIME_KEY);
 const timeStop = JSON.parse(saveTime);
 if (timeStop) {
-  player.setCurrentTime(timeStop.seconds || 0);
+  player.setCurrentTime(saveTime);
 }
